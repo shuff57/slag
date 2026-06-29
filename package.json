@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cf": "npm run build && wrangler pages dev",
+    "test": "node functions/_lib/util.test.mjs && node functions/_lib/integration.test.mjs && node src/lib/weld.test.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.460.0",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
-    "vite": "^5.4.11"
+    "vite": "^5.4.11",
+    "wrangler": "^3.90.0"
   }
 }

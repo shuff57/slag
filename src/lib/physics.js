@@ -43,6 +43,15 @@ export function physics({ process, material, thouThk, wire, rod }) {
     return { process, amps, ipm, volts, gas: MIG_GAS[material] };
   }
 
+  if (process === "flux") {
+    // Self-shielded flux-core: same wire feeder as MIG, but DCEN polarity, no
+    // gas, and a touch hotter voltage. Steel/stainless wire only (no aluminum).
+    const perAmp = WFS_PER_AMP[wire] || 1.6;
+    const ipm = Math.round(amps * perAmp);
+    const volts = Math.min(+(15 + thouThk * 0.06).toFixed(1), 29);
+    return { process, amps, ipm, volts, gas: "None — self-shielded", polarity: "DCEN" };
+  }
+
   if (process === "stick") {
     const rodThou = ROD_THOU[rod] ?? parseFloat(rod) * 1000;
     // ~1 amp per 0.001" of rod diameter is the classic 7018 rule.

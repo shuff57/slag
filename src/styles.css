@@ -155,6 +155,44 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
   border-radius: 10px; font-size: 14px; font-weight: 600;
 }
 
+/* ── account / tweaks ─────────────────────────────────── */
+.account { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+.acct-email { font-family: var(--mono); font-size: 12px; color: var(--mute); }
+.link-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px 2px;
+  color: var(--steel); font-family: var(--sans); font-size: 13px; font-weight: 600;
+}
+.link-btn:hover { color: var(--text); }
+.tweak-bar { display: flex; align-items: center; gap: 12px; }
+.tweak-flag {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--btn-ink); background: var(--arc); padding: 2px 6px; border-radius: 5px;
+}
+/* Inline-editable dial readout — matches .dial-read exactly, just goes hot. */
+.dial-read-input {
+  font-family: var(--mono); font-weight: 700; font-size: 28px; line-height: 1;
+  color: var(--arc); text-align: center; padding: 2px 4px; min-width: 2.5ch;
+  background: none; border: none; border-bottom: 2px dashed var(--arc);
+  box-sizing: content-box;
+}
+.dial-read-input::-webkit-outer-spin-button,
+.dial-read-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.dial-read-input { -moz-appearance: textfield; }
+.saved-list { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.saved-item { display: flex; align-items: center; gap: 6px; }
+.saved-name {
+  flex: 1; text-align: left; cursor: pointer;
+  background: var(--panel2); color: var(--text); border: 1px solid var(--line);
+  border-radius: 9px; padding: 9px 12px; font-family: var(--sans); font-size: 14px;
+}
+.saved-name:hover { border-color: var(--arc); }
+.icon-x {
+  background: none; border: 1px solid var(--line); border-radius: 9px; cursor: pointer;
+  color: var(--mute); padding: 8px; display: flex; align-items: center;
+}
+.icon-x:hover { color: var(--danger); border-color: var(--danger); }
+
 .icon-btn {
   padding: 0 14px; align-self: stretch; border-radius: 10px;
   display: flex; align-items: center;

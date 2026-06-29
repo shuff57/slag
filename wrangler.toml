@@ -1,0 +1,12 @@
+name = "slag"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "dist"
+
+# D1 binding — available in Pages Functions as env.DB
+[[d1_databases]]
+binding = "DB"
+database_name = "slag-db"
+database_id = "dcbbb76f-b93e-43b1-98fd-2714cbbf2e7e"
+
+# JWT_SECRET is NOT set here. Local: put it in .dev.vars (gitignored).
+# Production: npx wrangler pages secret put JWT_SECRET

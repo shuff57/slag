@@ -41,9 +41,34 @@ one has centralized it.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
+npm run dev      # http://localhost:5173 — frontend only (no /api)
 npm run build    # outputs to dist/
+npm test         # auth + handler self-checks
+npm run cf       # build + wrangler pages dev — serves /api + local D1 too
 ```
+
+`npm run dev` (Vite) does not run the `/api` Functions, so Sign in / Save will
+fail there. Use `npm run cf` to exercise auth + saved tweaks locally.
+
+## Accounts & saved tweaks (Cloudflare)
+
+Signed-in users can hit **Tweak** on the results card, dial each gauge to what
+actually works on their machine, and **Save** it with a name. Selecting a saved
+tweak reloads the full job setup *and* the adjusted gauge values. Everything is
+Cloudflare-native:
+
+- **Auth** — `functions/api/{signup,login,logout,me}.js`. Email + password;
+  passwords are PBKDF2-SHA256 with a per-user salt (`functions/_lib/util.js`),
+  never stored raw. Session is a signed JWT in an HttpOnly+Secure cookie.
+- **Data** — Cloudflare **D1** (`slag-db`), tables in `schema.sql`. Bound as
+  `env.DB` via `wrangler.toml`. Tweaks are scoped to the owner by `user_id`.
+
+**Required secret:** the API needs `JWT_SECRET`.
+- Local: a random one is in `.dev.vars` (gitignored).
+- Production: `npx wrangler pages secret put JWT_SECRET` (set once per project).
+
+Skipped for v1 (standard upgrades): email verification, password reset,
+app-level rate-limiting (lean on Cloudflare's edge first).
 
 ## Deploy to Cloudflare Pages
 
@@ -67,8 +92,8 @@ pull fresh assets.
 - **Grow `machines.json`** — the app is only as good as its calibration data.
   Consider a `confidence` flag per profile (`measured` vs `estimated`).
 - **User-contributed profiles** — the `+` button adds machines in-session only.
-  Persist them: localStorage for personal, or Cloudflare D1 + a Worker for a
-  shared community library.
+  Accounts + D1 are now wired (see above); persisting custom machines per-user
+  is a small extension of the existing `tweaks` pattern.
 - **Refine physics** — joint type and welding position both shift amperage;
   add them as inputs. Flux-core vs solid wire changes voltage/polarity.
 - **Icons** — `public/icon-*.png` are placeholders. Replace with real artwork.
@@ -84,8 +109,15 @@ src/
   components/Dial.jsx     ← rotary readout (signature element)
   components/Seg.jsx
   components/AddMachine.jsx
+  components/AuthModal.jsx ← email/password sign-in sheet
+  lib/api.js             ← client for the /api Functions
   App.jsx                ← composition
+functions/
+  _lib/util.js           ← PBKDF2 + JWT + cookie + auth guard
+  api/                   ← signup, login, logout, me, tweaks CRUD
 public/
   sw.js                  ← offline app-shell cache
   manifest.webmanifest
+schema.sql               ← D1 tables (users, tweaks)
+wrangler.toml            ← D1 binding + Pages config
 ```

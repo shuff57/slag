@@ -13,7 +13,8 @@ export function translate(machine, process, target) {
   const out = []; // { label, value, unit, min, max, sub } | { label, value, text:true }
   const warnings = [];
 
-  if (process === "mig") {
+  if (process === "mig" || process === "flux") {
+    // Flux-core runs on the same wire-feed hardware, so it reads machine.mig.
     const cfg = machine.mig;
 
     const dial = lerpClamp(target.ipm, cfg.wfs.ipmMin, cfg.wfs.ipmMax, cfg.wfs.dialMin, cfg.wfs.dialMax);
@@ -37,7 +38,12 @@ export function translate(machine, process, target) {
       out.push({ label: "Voltage", value: target.volts, unit: "V", min: cfg.voltage.voltMin, max: cfg.voltage.voltMax });
     }
 
-    out.push({ label: "Gas", value: target.gas, text: true });
+    if (process === "flux") {
+      out.push({ label: "Polarity", value: target.polarity, text: true });
+      out.push({ label: "Shielding", value: target.gas, text: true });
+    } else {
+      out.push({ label: "Gas", value: target.gas, text: true });
+    }
 
     if (target.amps > machine.ampMax)
       warnings.push(`Needs ~${target.amps} A; machine maxes at ${machine.ampMax} A. Bevel the joint, preheat, or run multiple passes.`);
