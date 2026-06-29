@@ -25,6 +25,10 @@ export default function App() {
   const machine = machines.find((m) => m.id === machineId) || machines[0];
   const proc = machine.processes.includes(process) ? process : machine.processes[0];
 
+  const brands = useMemo(() => [...new Set(machines.map((m) => m.brand))].sort(), [machines]);
+  const modelsForBrand = machines.filter((m) => m.brand === machine.brand);
+  const pickBrand = (b) => { const first = machines.find((m) => m.brand === b); if (first) setMachineId(first.id); };
+
   const result = useMemo(() => {
     const target = physics({ process: proc, material, thouThk, wire, rod });
     const { out, warnings } = translate(machine, proc, target);
@@ -51,15 +55,20 @@ export default function App() {
           <div className="field-gap">
             <label style={lbl}>Machine</label>
             <div className="row" style={{ gap: 8, marginTop: 6 }}>
-              <select value={machineId} onChange={(e) => setMachineId(e.target.value)} style={{ flex: 1, marginTop: 0 }}>
-                {machines.map((m) => (
-                  <option key={m.id} value={m.id}>{m.brand} {m.model} · {m.input}</option>
+              <select value={machine.brand} onChange={(e) => pickBrand(e.target.value)} style={{ flex: 1, marginTop: 0 }} aria-label="Brand">
+                {brands.map((b) => (
+                  <option key={b} value={b}>{b}</option>
                 ))}
               </select>
-              <button className="icon-btn" onClick={() => setShowAdd(true)} aria-label="Add machine">
-                <Plus size={18} />
-              </button>
+              <select value={machineId} onChange={(e) => setMachineId(e.target.value)} style={{ flex: 2, marginTop: 0 }} aria-label="Model">
+                {modelsForBrand.map((m) => (
+                  <option key={m.id} value={m.id}>{m.model} · {m.input}</option>
+                ))}
+              </select>
             </div>
+            <button className="add-machine-btn" onClick={() => setShowAdd(true)}>
+              <Plus size={16} /> Add machine
+            </button>
           </div>
 
           <div className="field-gap">

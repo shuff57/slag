@@ -134,7 +134,7 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
 }
 
 /* ── ignite buttons (blue → flame) ────────────────────── */
-.icon-btn, .seg button, .primary {
+.icon-btn, .seg button, .primary, .add-machine-btn {
   position: relative; isolation: isolate;
   border: none; cursor: pointer;
   color: var(--btn-ink);
@@ -142,12 +142,18 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
   font-family: var(--sans);
   transition: transform 0.06s, box-shadow 0.2s;
 }
-.icon-btn::before, .seg button::before, .primary::before {
+.icon-btn::before, .seg button::before, .primary::before, .add-machine-btn::before {
   content: ""; position: absolute; inset: 0; border-radius: inherit;
   background: var(--flame); opacity: 0; transition: opacity 0.28s ease; z-index: -1;
 }
-.icon-btn:hover::before, .seg button:hover::before, .primary:hover::before { opacity: 1; }
-.icon-btn:active, .seg button:active, .primary:active { transform: scale(0.97); }
+.icon-btn:hover::before, .seg button:hover::before, .primary:hover::before, .add-machine-btn:hover::before { opacity: 1; }
+.icon-btn:active, .seg button:active, .primary:active, .add-machine-btn:active { transform: scale(0.97); }
+
+.add-machine-btn {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  width: 100%; margin-top: 8px; padding: 9px;
+  border-radius: 10px; font-size: 14px; font-weight: 600;
+}
 
 .icon-btn {
   padding: 0 14px; align-self: stretch; border-radius: 10px;

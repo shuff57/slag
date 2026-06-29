@@ -7,11 +7,31 @@
       "brand": "Hobart",
       "model": "Handler 210MVP",
       "input": "120/240V",
-      "processes": ["mig"],
+      "processes": [
+        "mig"
+      ],
       "ampMax": 210,
       "mig": {
-        "voltage": { "type": "taps", "taps": [1, 2, 3, 4, 5, 6, 7], "voltMin": 14.5, "voltMax": 26 },
-        "wfs": { "dialMin": 1, "dialMax": 100, "ipmMin": 40, "ipmMax": 700 }
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "voltMin": 14.5,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 1,
+          "dialMax": 100,
+          "ipmMin": 40,
+          "ipmMax": 700
+        }
       }
     },
     {
@@ -19,47 +39,3354 @@
       "brand": "Lincoln",
       "model": "POWER MIG 210 MP",
       "input": "120/240V",
-      "processes": ["mig", "stick", "tig"],
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
       "ampMax": 220,
       "mig": {
-        "voltage": { "type": "continuous", "voltMin": 13, "voltMax": 26 },
-        "wfs": { "dialMin": 0, "dialMax": 100, "ipmMin": 50, "ipmMax": 500 }
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
       },
-      "stick": { "ampMin": 20, "ampMax": 130 },
-      "tig": { "ampMin": 10, "ampMax": 220, "ac": false }
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 130
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 220,
+        "ac": false
+      }
     },
     {
       "id": "miller-215",
       "brand": "Miller",
       "model": "Multimatic 215",
       "input": "120/240V",
-      "processes": ["mig", "stick", "tig"],
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
       "ampMax": 230,
       "mig": {
-        "voltage": { "type": "continuous", "voltMin": 13, "voltMax": 26 },
-        "wfs": { "dialMin": 0, "dialMax": 100, "ipmMin": 60, "ipmMax": 600 }
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 600
+        }
       },
-      "stick": { "ampMin": 20, "ampMax": 150 },
-      "tig": { "ampMin": 10, "ampMax": 150, "ac": false }
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 150
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 150,
+        "ac": false
+      }
     },
     {
       "id": "lincoln-ac225",
       "brand": "Lincoln",
       "model": "AC-225 (buzzbox)",
       "input": "240V",
-      "processes": ["stick"],
+      "processes": [
+        "stick"
+      ],
       "ampMax": 225,
-      "stick": { "ampMin": 40, "ampMax": 225, "taps": true }
+      "stick": {
+        "ampMin": 40,
+        "ampMax": 225,
+        "taps": true
+      }
     },
     {
       "id": "primeweld-tig225",
       "brand": "PrimeWeld",
       "model": "TIG225X",
       "input": "120/240V",
-      "processes": ["tig", "stick"],
+      "processes": [
+        "tig",
+        "stick"
+      ],
       "ampMax": 225,
-      "tig": { "ampMin": 10, "ampMax": 225, "ac": true },
-      "stick": { "ampMin": 10, "ampMax": 200 }
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 225,
+        "ac": true
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 200
+      }
+    },
+    {
+      "id": "miller-millermatic-141",
+      "brand": "Miller",
+      "model": "Millermatic 141",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 21
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 15,
+          "ipmMax": 360
+        }
+      }
+    },
+    {
+      "id": "miller-millermatic-211",
+      "brand": "Miller",
+      "model": "Millermatic 211",
+      "input": "120/240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 230,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 600
+        }
+      }
+    },
+    {
+      "id": "miller-millermatic-255",
+      "brand": "Miller",
+      "model": "Millermatic 255",
+      "input": "208/240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 350,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 32
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 800
+        }
+      }
+    },
+    {
+      "id": "miller-multimatic-220-acdc",
+      "brand": "Miller",
+      "model": "Multimatic 220 AC/DC",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 230,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 600
+        }
+      },
+      "stick": {
+        "ampMin": 30,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 20,
+        "ampMax": 210,
+        "ac": true
+      }
+    },
+    {
+      "id": "miller-multimatic-255",
+      "brand": "Miller",
+      "model": "Multimatic 255",
+      "input": "208-575V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 350,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 32
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 800
+        }
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 350
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 350,
+        "ac": false
+      }
+    },
+    {
+      "id": "miller-dynasty-210",
+      "brand": "Miller",
+      "model": "Dynasty 210",
+      "input": "120-480V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 210,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 210
+      },
+      "tig": {
+        "ampMin": 1,
+        "ampMax": 210,
+        "ac": true
+      }
+    },
+    {
+      "id": "miller-dynasty-280",
+      "brand": "Miller",
+      "model": "Dynasty 280",
+      "input": "208-575V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 280,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 280
+      },
+      "tig": {
+        "ampMin": 1,
+        "ampMax": 280,
+        "ac": true
+      }
+    },
+    {
+      "id": "miller-dynasty-400",
+      "brand": "Miller",
+      "model": "Dynasty 400",
+      "input": "208-575V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 400,
+      "stick": {
+        "ampMin": 3,
+        "ampMax": 400
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 400,
+        "ac": true
+      }
+    },
+    {
+      "id": "miller-maxstar-161",
+      "brand": "Miller",
+      "model": "Maxstar 161",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 160,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 160,
+        "ac": false
+      }
+    },
+    {
+      "id": "miller-maxstar-210",
+      "brand": "Miller",
+      "model": "Maxstar 210",
+      "input": "120-480V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 210,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 210
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 210,
+        "ac": false
+      }
+    },
+    {
+      "id": "miller-maxstar-280",
+      "brand": "Miller",
+      "model": "Maxstar 280",
+      "input": "208-575V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 280,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 280
+      },
+      "tig": {
+        "ampMin": 1,
+        "ampMax": 280,
+        "ac": false
+      }
+    },
+    {
+      "id": "miller-diversion-165",
+      "brand": "Miller",
+      "model": "Diversion 165",
+      "input": "230V",
+      "processes": [
+        "tig"
+      ],
+      "ampMax": 165,
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 165,
+        "ac": true
+      }
+    },
+    {
+      "id": "miller-diversion-180",
+      "brand": "Miller",
+      "model": "Diversion 180",
+      "input": "120/240V",
+      "processes": [
+        "tig"
+      ],
+      "ampMax": 180,
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 180,
+        "ac": true
+      }
+    },
+    {
+      "id": "miller-syncrowave-210",
+      "brand": "Miller",
+      "model": "Syncrowave 210",
+      "input": "115/230V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 210,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 150
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 210,
+        "ac": true
+      }
+    },
+    {
+      "id": "lincoln-power-mig-140c",
+      "brand": "Lincoln",
+      "model": "POWER MIG 140C",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 21
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      }
+    },
+    {
+      "id": "lincoln-power-mig-180c",
+      "brand": "Lincoln",
+      "model": "POWER MIG 180C",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 180,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      }
+    },
+    {
+      "id": "lincoln-power-mig-211i",
+      "brand": "Lincoln",
+      "model": "POWER MIG 211i",
+      "input": "120/230V",
+      "processes": [
+        "mig",
+        "stick"
+      ],
+      "ampMax": 211,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 211
+      }
+    },
+    {
+      "id": "lincoln-power-mig-215-mpi",
+      "brand": "Lincoln",
+      "model": "POWER MIG 215 MPi",
+      "input": "120/230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 220,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 220
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 220,
+        "ac": false
+      }
+    },
+    {
+      "id": "lincoln-power-mig-256",
+      "brand": "Lincoln",
+      "model": "POWER MIG 256",
+      "input": "208/230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 300,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 32
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 700
+        }
+      }
+    },
+    {
+      "id": "lincoln-square-wave-tig-200",
+      "brand": "Lincoln",
+      "model": "Square Wave TIG 200",
+      "input": "120/230V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": true
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 170
+      }
+    },
+    {
+      "id": "lincoln-weld-pak-140hd",
+      "brand": "Lincoln",
+      "model": "WELD-PAK 140HD",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "voltMin": 17.5,
+          "voltMax": 27.9
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      }
+    },
+    {
+      "id": "lincoln-easy-mig-140",
+      "brand": "Lincoln",
+      "model": "EASY MIG 140",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "voltMin": 17.5,
+          "voltMax": 27.9
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      }
+    },
+    {
+      "id": "lincoln-easy-mig-180",
+      "brand": "Lincoln",
+      "model": "EASY MIG 180",
+      "input": "208/230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 180,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "voltMin": 13.5,
+          "voltMax": 25.5
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      }
+    },
+    {
+      "id": "lincoln-power-mig-140-mp",
+      "brand": "Lincoln",
+      "model": "POWER MIG 140 MP",
+      "input": "120V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 21
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 40,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 25,
+        "ampMax": 90
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 120,
+        "ac": false
+      }
+    },
+    {
+      "id": "lincoln-weld-pak-90i",
+      "brand": "Lincoln",
+      "model": "WELD-PAK 90i",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 120,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 20
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 20,
+          "ipmMax": 200
+        }
+      }
+    },
+    {
+      "id": "lincoln-aspect-200",
+      "brand": "Lincoln",
+      "model": "Aspect 200",
+      "input": "120/230V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "tig": {
+        "ampMin": 2,
+        "ampMax": 200,
+        "ac": true
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 160
+      }
+    },
+    {
+      "id": "lincoln-invertec-v155-s",
+      "brand": "Lincoln",
+      "model": "Invertec V155-S",
+      "input": "120/230V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 155,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 155
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 155,
+        "ac": false
+      }
+    },
+    {
+      "id": "lincoln-idealarc-dc-600",
+      "brand": "Lincoln",
+      "model": "Idealarc DC-600",
+      "input": "208/230/460/575V",
+      "processes": [
+        "mig",
+        "stick"
+      ],
+      "ampMax": 780,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 44
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 700
+        }
+      },
+      "stick": {
+        "ampMin": 90,
+        "ampMax": 780
+      }
+    },
+    {
+      "id": "hobart-handler-100",
+      "brand": "Hobart",
+      "model": "Handler 100",
+      "input": "115V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 100,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "voltMin": 13,
+          "voltMax": 20
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 90,
+          "ipmMax": 320
+        }
+      }
+    },
+    {
+      "id": "hobart-handler-125",
+      "brand": "Hobart",
+      "model": "Handler 125",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 125,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "voltMin": 14,
+          "voltMax": 22
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 88,
+          "ipmMax": 545
+        }
+      }
+    },
+    {
+      "id": "hobart-handler-140",
+      "brand": "Hobart",
+      "model": "Handler 140",
+      "input": "115V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "voltMin": 14,
+          "voltMax": 22
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 40,
+          "ipmMax": 700
+        }
+      }
+    },
+    {
+      "id": "hobart-handler-190",
+      "brand": "Hobart",
+      "model": "Handler 190",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 190,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "voltMin": 16,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 40,
+          "ipmMax": 700
+        }
+      }
+    },
+    {
+      "id": "hobart-ironman-230",
+      "brand": "Hobart",
+      "model": "IronMan 230",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "taps",
+          "taps": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "voltMin": 14,
+          "voltMax": 32
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 10,
+          "ipmMax": 700
+        }
+      }
+    },
+    {
+      "id": "hobart-ironman-240",
+      "brand": "Hobart",
+      "model": "IronMan 240",
+      "input": "208/230/240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 280,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 32
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 50,
+          "ipmMax": 700
+        }
+      }
+    },
+    {
+      "id": "hobart-champion-145",
+      "brand": "Hobart",
+      "model": "Champion 145",
+      "input": "engine",
+      "processes": [
+        "stick"
+      ],
+      "ampMax": 145,
+      "stick": {
+        "ampMin": 40,
+        "ampMax": 145
+      }
+    },
+    {
+      "id": "hobart-stickmate-160i",
+      "brand": "Hobart",
+      "model": "Stickmate 160i",
+      "input": "120/240V",
+      "processes": [
+        "stick"
+      ],
+      "ampMax": 160,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 160
+      }
+    },
+    {
+      "id": "hobart-stickmate-210i",
+      "brand": "Hobart",
+      "model": "Stickmate 210i",
+      "input": "240V",
+      "processes": [
+        "stick"
+      ],
+      "ampMax": 210,
+      "stick": {
+        "ampMin": 40,
+        "ampMax": 210
+      }
+    },
+    {
+      "id": "hobart-ez-tig-165i",
+      "brand": "Hobart",
+      "model": "EZ-TIG 165i",
+      "input": "230V",
+      "processes": [
+        "tig"
+      ],
+      "ampMax": 165,
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 165,
+        "ac": true
+      }
+    },
+    {
+      "id": "hobart-multi-handler-200",
+      "brand": "Hobart",
+      "model": "Multi-Handler 200",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 10,
+          "ipmMin": 60,
+          "ipmMax": 650
+        }
+      },
+      "stick": {
+        "ampMin": 30,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 20,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-rebel-emp-205ic",
+      "brand": "ESAB",
+      "model": "Rebel EMP 205ic AC/DC",
+      "input": "120/230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 235,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 80,
+          "ipmMax": 475
+        }
+      },
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 205,
+        "ac": true
+      }
+    },
+    {
+      "id": "esab-rebel-emp-215ic",
+      "brand": "ESAB",
+      "model": "Rebel EMP 215ic",
+      "input": "120/230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 240,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 80,
+          "ipmMax": 475
+        }
+      },
+      "stick": {
+        "ampMin": 16,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-rebel-emp-235ic",
+      "brand": "ESAB",
+      "model": "Rebel EMP 235ic",
+      "input": "120/230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 10,
+          "voltMax": 30
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 700
+        }
+      },
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 210
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 240,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-rebel-emp-320ic",
+      "brand": "ESAB",
+      "model": "Rebel EMP 320ic",
+      "input": "400V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 350,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 40
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 700
+        }
+      },
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 350
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 320,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-rebel-em-215ic",
+      "brand": "ESAB",
+      "model": "Rebel EM 215ic",
+      "input": "120/230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 240,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 80,
+          "ipmMax": 475
+        }
+      }
+    },
+    {
+      "id": "esab-rogue-es-180i",
+      "brand": "ESAB",
+      "model": "Rogue ES 180i",
+      "input": "120/230V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 180,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 180,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-rogue-et-200ip",
+      "brand": "ESAB",
+      "model": "Rogue ET 200iP",
+      "input": "120/230V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-rogue-em-190-pro",
+      "brand": "ESAB",
+      "model": "Rogue EM 190 PRO",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 190,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 12,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 75,
+          "ipmMax": 650
+        }
+      }
+    },
+    {
+      "id": "esab-renegade-es-300i",
+      "brand": "ESAB",
+      "model": "Renegade ES 300i",
+      "input": "230/460V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 300,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 300
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 300,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-renegade-et-300i",
+      "brand": "ESAB",
+      "model": "Renegade ET 300i",
+      "input": "208/460V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 300,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 300
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 300,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-warrior-400i-mv",
+      "brand": "ESAB",
+      "model": "Warrior 400i MV",
+      "input": "220/460V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 400,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 40
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 32,
+          "ipmMax": 1000
+        }
+      },
+      "stick": {
+        "ampMin": 4,
+        "ampMax": 400
+      },
+      "tig": {
+        "ampMin": 4,
+        "ampMax": 400,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-fabricator-252i",
+      "brand": "ESAB",
+      "model": "Fabricator 252i",
+      "input": "208/230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 30
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 67,
+          "ipmMax": 700
+        }
+      },
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 230
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 250,
+        "ac": false
+      }
+    },
+    {
+      "id": "esab-heliarc-252",
+      "brand": "ESAB",
+      "model": "Heliarc 252 AC/DC",
+      "input": "230/460V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 320,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 320
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 320,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powertig-185dv",
+      "brand": "Everlast",
+      "model": "PowerTIG 185DV",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 185,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 185,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powertig-210ext",
+      "brand": "Everlast",
+      "model": "PowerTIG 210EXT",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 210,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 210,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powertig-250ex",
+      "brand": "Everlast",
+      "model": "PowerTIG 250EX",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 250,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 250,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powertig-255ext",
+      "brand": "Everlast",
+      "model": "PowerTIG 255EXT",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 250,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 250,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powertig-325ext",
+      "brand": "Everlast",
+      "model": "PowerTIG 325EXT",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 320,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 250
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 320,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powermig-200",
+      "brand": "Everlast",
+      "model": "PowerMIG 200",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15.5,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 160
+      }
+    },
+    {
+      "id": "everlast-powermig-253dpi",
+      "brand": "Everlast",
+      "model": "PowerMIG 253DPi",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 600
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "everlast-powermts-211si",
+      "brand": "Everlast",
+      "model": "PowerMTS 211Si",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15.5,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powermts-251si",
+      "brand": "Everlast",
+      "model": "PowerMTS 251Si",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15.5,
+          "voltMax": 30
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 600
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 250,
+        "ac": true
+      }
+    },
+    {
+      "id": "everlast-powerarc-140",
+      "brand": "Everlast",
+      "model": "PowerARC 140",
+      "input": "120/240V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 140,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 140
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 140,
+        "ac": false
+      }
+    },
+    {
+      "id": "everlast-powerarc-160",
+      "brand": "Everlast",
+      "model": "PowerARC 160",
+      "input": "120/240V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 160,
+      "stick": {
+        "ampMin": 15,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 160,
+        "ac": false
+      }
+    },
+    {
+      "id": "everlast-powerpro-205si",
+      "brand": "Everlast",
+      "model": "PowerPro 205Si",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": true
+      }
+    },
+    {
+      "id": "ahp-alphatig-200x",
+      "brand": "AHP",
+      "model": "AlphaTIG 200X",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": true
+      }
+    },
+    {
+      "id": "ahp-alphatig-201xd",
+      "brand": "AHP",
+      "model": "AlphaTIG 201XD",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": true
+      }
+    },
+    {
+      "id": "ahp-alphatig-203xi",
+      "brand": "AHP",
+      "model": "AlphaTIG 203Xi",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": true
+      }
+    },
+    {
+      "id": "ahp-alphatig-225xi",
+      "brand": "AHP",
+      "model": "AlphaTIG 225Xi",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 225,
+      "stick": {
+        "ampMin": 5,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 225,
+        "ac": true
+      }
+    },
+    {
+      "id": "ahp-alphamig-202",
+      "brand": "AHP",
+      "model": "AlphaMIG 202",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 20,
+        "ampMax": 150,
+        "ac": false
+      }
+    },
+    {
+      "id": "ahp-alphamig-231ms",
+      "brand": "AHP",
+      "model": "AlphaMIG 231ms",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick"
+      ],
+      "ampMax": 230,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 600
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      }
+    },
+    {
+      "id": "weldpro-omni210",
+      "brand": "Weldpro",
+      "model": "OMNI 210",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": true
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      }
+    },
+    {
+      "id": "weldpro-mig155",
+      "brand": "Weldpro",
+      "model": "MIG 155",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick"
+      ],
+      "ampMax": 155,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 400
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 150
+      }
+    },
+    {
+      "id": "weldpro-mig200",
+      "brand": "Weldpro",
+      "model": "MIG 200",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 160
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "weldpro-mig250lcd",
+      "brand": "Weldpro",
+      "model": "MIG 250 LCD",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 600
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 250,
+        "ac": false
+      }
+    },
+    {
+      "id": "weldpro-tigacdc250gd",
+      "brand": "Weldpro",
+      "model": "TIG ACDC 250GD",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 250,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 250,
+        "ac": true
+      }
+    },
+    {
+      "id": "yeswelder-mig-205ds",
+      "brand": "YesWelder",
+      "model": "MIG-205DS",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 205,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 58,
+          "ipmMax": 858
+        }
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 205
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 205,
+        "ac": false
+      }
+    },
+    {
+      "id": "yeswelder-mig-250-pro",
+      "brand": "YesWelder",
+      "model": "MIG-250 Pro",
+      "input": "110/220V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 600
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 225
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 250,
+        "ac": false
+      }
+    },
+    {
+      "id": "yeswelder-tig-205ds",
+      "brand": "YesWelder",
+      "model": "TIG-205DS",
+      "input": "110/220V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 205,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 205
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 205,
+        "ac": false
+      }
+    },
+    {
+      "id": "yeswelder-flux-135",
+      "brand": "YesWelder",
+      "model": "Flux-135",
+      "input": "110V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 135,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 16,
+          "voltMax": 22
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 450
+        }
+      }
+    },
+    {
+      "id": "yeswelder-ywm-211p",
+      "brand": "YesWelder",
+      "model": "YWM-211P",
+      "input": "220V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15.5,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 550
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "yeswelder-firstess-mp200",
+      "brand": "YesWelder",
+      "model": "FIRSTESS MP200",
+      "input": "110/220V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 550
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "primeweld-mig180",
+      "brand": "PrimeWeld",
+      "model": "MIG180",
+      "input": "110/220V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 180,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 22
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 78,
+          "ipmMax": 300
+        }
+      }
+    },
+    {
+      "id": "primeweld-mts200",
+      "brand": "PrimeWeld",
+      "model": "MTS200",
+      "input": "110/220V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "lotos-mig140",
+      "brand": "Lotos",
+      "model": "MIG140",
+      "input": "110V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 21
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 350
+        }
+      }
+    },
+    {
+      "id": "lotos-mig175",
+      "brand": "Lotos",
+      "model": "MIG175",
+      "input": "220-240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 175,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 23
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 70,
+          "ipmMax": 400
+        }
+      }
+    },
+    {
+      "id": "lotos-tig200",
+      "brand": "Lotos",
+      "model": "TIG200",
+      "input": "110/220V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 15,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": true
+      }
+    },
+    {
+      "id": "lotos-ct520d",
+      "brand": "Lotos",
+      "model": "CT520D",
+      "input": "110/220V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 15,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "lotos-ltpdc2000d",
+      "brand": "Lotos",
+      "model": "LTPDC2000D",
+      "input": "110/220V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 15,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "arccaptain-mig130",
+      "brand": "ArcCaptain",
+      "model": "MIG130",
+      "input": "110V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 130,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 16,
+          "voltMax": 20.5
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 350
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 130
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 130,
+        "ac": false
+      }
+    },
+    {
+      "id": "arccaptain-mig200",
+      "brand": "ArcCaptain",
+      "model": "MIG200",
+      "input": "110/220V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 11,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 550
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "hitbox-arc200",
+      "brand": "Hitbox",
+      "model": "ARC200",
+      "input": "110/220V",
+      "processes": [
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      }
+    },
+    {
+      "id": "hitbox-mig200",
+      "brand": "Hitbox",
+      "model": "MIG200",
+      "input": "110/220V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "vevor-mig200",
+      "brand": "Vevor",
+      "model": "MIG200",
+      "input": "110/220V",
+      "processes": [
+        "mig",
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 15,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "vulcan-omnipro-220",
+      "brand": "Vulcan",
+      "model": "OmniPro 220",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 220,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 175
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 175,
+        "ac": false
+      }
+    },
+    {
+      "id": "vulcan-migmax-140",
+      "brand": "Vulcan",
+      "model": "MIGMax 140",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 23
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 400
+        }
+      }
+    },
+    {
+      "id": "vulcan-migmax-215",
+      "brand": "Vulcan",
+      "model": "MIGMax 215",
+      "input": "120/240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 220,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      }
+    },
+    {
+      "id": "vulcan-protig-165",
+      "brand": "Vulcan",
+      "model": "ProTIG 165",
+      "input": "120/240V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 165,
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 165,
+        "ac": false
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 165
+      }
+    },
+    {
+      "id": "vulcan-commander-225",
+      "brand": "Vulcan",
+      "model": "Commander 225",
+      "input": "230V",
+      "processes": [
+        "stick"
+      ],
+      "ampMax": 225,
+      "stick": {
+        "ampMin": 30,
+        "ampMax": 225,
+        "taps": true
+      }
+    },
+    {
+      "id": "titanium-mig-140",
+      "brand": "Titanium",
+      "model": "MIG 140",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 23
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 80,
+          "ipmMax": 275
+        }
+      }
+    },
+    {
+      "id": "titanium-mig-170",
+      "brand": "Titanium",
+      "model": "MIG 170",
+      "input": "120/240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 170,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 80,
+          "ipmMax": 300
+        }
+      }
+    },
+    {
+      "id": "titanium-easy-flux-125",
+      "brand": "Titanium",
+      "model": "Easy-Flux 125",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 125,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 12,
+          "voltMax": 22
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 60,
+          "ipmMax": 250
+        }
+      }
+    },
+    {
+      "id": "titanium-unlimited-200",
+      "brand": "Titanium",
+      "model": "Unlimited 200",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 450
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "forney-easy-weld-140mp",
+      "brand": "Forney",
+      "model": "Easy Weld 140 MP",
+      "input": "120V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 12,
+          "voltMax": 23
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 79,
+          "ipmMax": 197
+        }
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 140
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 140,
+        "ac": false
+      }
+    },
+    {
+      "id": "forney-easy-weld-220mp",
+      "brand": "Forney",
+      "model": "Easy Weld 220 MP",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 220,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 80,
+          "ipmMax": 400
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "forney-322-mig",
+      "brand": "Forney",
+      "model": "322 MIG",
+      "input": "120V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 12,
+          "voltMax": 23
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 70,
+          "ipmMax": 200
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 140
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 140,
+        "ac": false
+      }
+    },
+    {
+      "id": "forney-318-mig",
+      "brand": "Forney",
+      "model": "318 MIG",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 190,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 100,
+          "ipmMax": 400
+        }
+      }
+    },
+    {
+      "id": "forney-100st",
+      "brand": "Forney",
+      "model": "Easy Weld 100 ST",
+      "input": "120V",
+      "processes": [
+        "stick",
+        "tig"
+      ],
+      "ampMax": 90,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 80
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 90,
+        "ac": false
+      }
+    },
+    {
+      "id": "eastwood-mig-135",
+      "brand": "Eastwood",
+      "model": "MIG 135",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 135,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 40,
+          "ipmMax": 450
+        }
+      }
+    },
+    {
+      "id": "eastwood-mig-180",
+      "brand": "Eastwood",
+      "model": "MIG 180",
+      "input": "120/240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 180,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 25
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 80,
+          "ipmMax": 551
+        }
+      }
+    },
+    {
+      "id": "eastwood-mig-250",
+      "brand": "Eastwood",
+      "model": "MIG 250",
+      "input": "120/240V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 100,
+          "ipmMax": 600
+        }
+      }
+    },
+    {
+      "id": "eastwood-tig-200",
+      "brand": "Eastwood",
+      "model": "TIG 200",
+      "input": "120/240V",
+      "processes": [
+        "tig"
+      ],
+      "ampMax": 200,
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 200,
+        "ac": true
+      }
+    },
+    {
+      "id": "eastwood-mp250i",
+      "brand": "Eastwood",
+      "model": "MP250i",
+      "input": "120/240V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 250,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 100,
+          "ipmMax": 600
+        }
+      },
+      "stick": {
+        "ampMin": 30,
+        "ampMax": 250
+      },
+      "tig": {
+        "ampMin": 10,
+        "ampMax": 250,
+        "ac": false
+      }
+    },
+    {
+      "id": "klutch-mig-140i",
+      "brand": "Klutch",
+      "model": "MIG 140i",
+      "input": "120V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 140,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 23
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 400
+        }
+      }
+    },
+    {
+      "id": "klutch-st80i",
+      "brand": "Klutch",
+      "model": "ST80i",
+      "input": "115V",
+      "processes": [
+        "stick"
+      ],
+      "ampMax": 75,
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 75
+      }
+    },
+    {
+      "id": "fronius-transsteel-2200",
+      "brand": "Fronius",
+      "model": "TransSteel 2200",
+      "input": "230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 220,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 13,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 59,
+          "ipmMax": 709
+        }
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 220,
+        "ac": false
+      }
+    },
+    {
+      "id": "fronius-transsteel-2700",
+      "brand": "Fronius",
+      "model": "TransSteel 2700C",
+      "input": "230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 270,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 20.4,
+          "voltMax": 34.3
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 39,
+          "ipmMax": 985
+        }
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 240
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 270,
+        "ac": false
+      }
+    },
+    {
+      "id": "fronius-tps-320i",
+      "brand": "Fronius",
+      "model": "TPS 320i",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 320,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 32
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 600
+        }
+      }
+    },
+    {
+      "id": "fronius-magicwave-230i",
+      "brand": "Fronius",
+      "model": "MagicWave 230i",
+      "input": "230V",
+      "processes": [
+        "tig"
+      ],
+      "ampMax": 230,
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 230,
+        "ac": true
+      }
+    },
+    {
+      "id": "kemppi-minarcmig-evo-200",
+      "brand": "Kemppi",
+      "model": "MinarcMig Evo 200",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 12,
+          "voltMax": 24
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      }
+    },
+    {
+      "id": "kemppi-master-m-205",
+      "brand": "Kemppi",
+      "model": "Master M 205",
+      "input": "230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 205,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 200
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 180,
+        "ac": false
+      }
+    },
+    {
+      "id": "kemppi-mastertig-235",
+      "brand": "Kemppi",
+      "model": "MasterTig 235",
+      "input": "230V",
+      "processes": [
+        "tig"
+      ],
+      "ampMax": 235,
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 235,
+        "ac": true
+      }
+    },
+    {
+      "id": "telwin-telmig-200",
+      "brand": "Telwin",
+      "model": "Telmig 200/2 Turbo",
+      "input": "230V",
+      "processes": [
+        "mig"
+      ],
+      "ampMax": 220,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 550
+        }
+      }
+    },
+    {
+      "id": "telwin-technomig-215",
+      "brand": "Telwin",
+      "model": "Technomig 215 Dual Synergic",
+      "input": "230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 220,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 15,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 190
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 220,
+        "ac": false
+      }
+    },
+    {
+      "id": "gys-multiweld-200m",
+      "brand": "GYS",
+      "model": "Multiweld 200M",
+      "input": "230V",
+      "processes": [
+        "mig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 26
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 480
+        }
+      },
+      "stick": {
+        "ampMin": 30,
+        "ampMax": 180
+      }
+    },
+    {
+      "id": "jasic-tig-200p",
+      "brand": "Jasic",
+      "model": "TIG 200P",
+      "input": "230V",
+      "processes": [
+        "tig",
+        "stick"
+      ],
+      "ampMax": 200,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "jasic-mig-200-evo20",
+      "brand": "Jasic",
+      "model": "MIG 200 (EVO20)",
+      "input": "230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 200,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 28
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 500
+        }
+      },
+      "stick": {
+        "ampMin": 20,
+        "ampMax": 180
+      },
+      "tig": {
+        "ampMin": 5,
+        "ampMax": 200,
+        "ac": false
+      }
+    },
+    {
+      "id": "ewm-picomig-185",
+      "brand": "EWM",
+      "model": "Picomig 185 Synergic TKG",
+      "input": "230V",
+      "processes": [
+        "mig",
+        "stick",
+        "tig"
+      ],
+      "ampMax": 180,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14.3,
+          "voltMax": 23
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 450
+        }
+      },
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 150
+      },
+      "tig": {
+        "ampMin": 3,
+        "ampMax": 180,
+        "ac": false
+      }
+    },
+    {
+      "id": "telwin-force-165",
+      "brand": "Telwin",
+      "model": "Force 165",
+      "input": "230V",
+      "processes": [
+        "stick"
+      ],
+      "ampMax": 150,
+      "stick": {
+        "ampMin": 10,
+        "ampMax": 150
+      }
     }
   ]
 }
