@@ -22,6 +22,15 @@ const MATERIALS = [
   { v: "titanium", t: "Titanium" },
 ];
 
+// Steel sheet-metal gauge → thickness in thou (Manufacturers' Standard Gauge).
+// ponytail: steel standard only; aluminum/stainless use different gauge tables.
+const GAUGES = [
+  { ga: 22, thou: 30 }, { ga: 20, thou: 36 }, { ga: 18, thou: 48 },
+  { ga: 16, thou: 60 }, { ga: 14, thou: 75 }, { ga: 12, thou: 105 },
+  { ga: 11, thou: 120 }, { ga: 10, thou: 135 }, { ga: 7, thou: 179 },
+];
+const gaugeFor = (thou) => GAUGES.find((g) => g.thou === thou)?.ga;
+
 export default function App() {
   const seeded = machineData.machines;
   const [custom, setCustom] = useState([]);
@@ -35,6 +44,7 @@ export default function App() {
   const [rod, setRod] = useState("0.125");
   const [showAdd, setShowAdd] = useState(false);
   const [thkEdit, setThkEdit] = useState(null); // string while editing inches, else null
+  const [thkUnit, setThkUnit] = useState("in"); // "in" (continuous) | "ga" (snaps to gauges)
 
   // ── auth + saved tweaks ──────────────────────────────────
   const [user, setUser] = useState(null);          // email or null
@@ -134,6 +144,19 @@ export default function App() {
   }
 
   const thkInch = (thouThk / 1000).toFixed(3);
+  const [gaEdit, setGaEdit] = useState(null); // string while typing a gauge, else null
+  // Nearest gauge index for the current thickness (drives the gauge-mode slider).
+  const gaugeIdx = GAUGES.reduce((best, g, i, arr) =>
+    Math.abs(g.thou - thouThk) < Math.abs(arr[best].thou - thouThk) ? i : best, 0);
+  const curGauge = gaugeFor(thouThk) ?? GAUGES[gaugeIdx].ga;
+  const setUnit = (u) => { setThkUnit(u); if (u === "ga") onThk(GAUGES[gaugeIdx].thou); };
+  const commitGauge = (raw) => {
+    const n = parseInt(raw, 10);
+    if (isNaN(n)) return;
+    const g = GAUGES.find((x) => x.ga === n) ??
+      GAUGES.reduce((b, x) => (Math.abs(x.ga - n) < Math.abs(b.ga - n) ? x : b), GAUGES[0]);
+    onThk(g.thou);
+  };
 
   return (
     <div className="wrap">
@@ -224,24 +247,66 @@ export default function App() {
           </div>
 
           <div className="field-gap">
-            <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
-              <label style={lbl}>Thickness</label>
-              <span className="thk-edit">
-                <input className="thk-input" type="text" inputMode="decimal"
-                  value={thkEdit ?? thkInch}
-                  onFocus={() => setThkEdit(thkInch)}
-                  onChange={(e) => {
-                    setThkEdit(e.target.value);
-                    const v = parseFloat(e.target.value);
-                    if (!isNaN(v)) onThk(Math.max(30, Math.min(500, Math.round(v * 1000))));
-                  }}
-                  onBlur={() => setThkEdit(null)}
-                  aria-label="Thickness in inches" />
-                <span className="thk-unit">"</span>
+            <div className="row" style={{ justifyContent: "space-between", alignItems: "center" }}>
+              <span className="row" style={{ gap: 10, alignItems: "center" }}>
+                <label style={lbl}>Thickness</label>
+                <span className="unit-toggle">
+                  <button className={thkUnit === "in" ? "on" : ""} onClick={() => setUnit("in")}>in"</button>
+                  <button className={thkUnit === "ga" ? "on" : ""} onClick={() => setUnit("ga")}>ga</button>
+                </span>
               </span>
+              {thkUnit === "in" ? (
+                <span className="thk-edit">
+                  <input className="thk-input" type="text" inputMode="decimal"
+                    value={thkEdit ?? thkInch}
+                    onFocus={() => setThkEdit(thkInch)}
+                    onChange={(e) => {
+                      setThkEdit(e.target.value);
+                      const v = parseFloat(e.target.value);
+                      if (!isNaN(v)) onThk(Math.max(30, Math.min(500, Math.round(v * 1000))));
+                    }}
+                    onBlur={() => setThkEdit(null)}
+                    aria-label="Thickness in inches" />
+                  <span className="thk-unit">"</span>
+                </span>
+              ) : (
+                <span className="thk-edit">
+                  <input className="thk-input thk-ga" type="number" inputMode="numeric" step={1}
+                    value={gaEdit ?? curGauge}
+                    onFocus={() => setGaEdit(String(curGauge))}
+                    onChange={(e) => {
+                      setGaEdit(e.target.value);
+                      const ex = GAUGES.find((x) => x.ga === parseInt(e.target.value, 10));
+                      if (ex) onThk(ex.thou);
+                    }}
+                    onBlur={() => { commitGauge(gaEdit ?? ""); setGaEdit(null); }}
+                    aria-label="Gauge" />
+                  <span className="thk-unit">ga</span>
+                </span>
+              )}
             </div>
-            <input type="range" min={30} max={500} value={thouThk} onChange={(e) => onThk(+e.target.value)} />
-            <div style={{ ...lbl, marginTop: -2 }}>thou · 30 — 500 (1/2")</div>
+
+            {thkUnit === "in" ? (
+              <input type="range" min={30} max={500} value={thouThk} onChange={(e) => onThk(+e.target.value)} />
+            ) : (
+              <div className="gauge-slider">
+                <div className="gs-track" />
+                <div className="gs-fill" style={{ width: `calc((100% - 20px) * ${gaugeIdx / (GAUGES.length - 1)})` }} />
+                {GAUGES.map((g, i) => (
+                  <button key={g.ga}
+                    className={`gstep${i <= gaugeIdx ? " filled" : ""}${i === gaugeIdx ? " on" : ""}`}
+                    style={{ left: `calc(10px + (100% - 20px) * ${i / (GAUGES.length - 1)})` }}
+                    onClick={() => onThk(g.thou)} aria-label={`${g.ga} gauge`}
+                    title={`${(g.thou / 1000).toFixed(3)}"`}>
+                    <span className="gs-dot" />
+                    <span className="gs-num">{g.ga}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+            <div className="thin-thick" style={{ ...lbl, paddingTop: 12 }}>
+              <span>Thin</span><span className="tt-arrow" /><span>Thick</span>
+            </div>
           </div>
 
           {(proc === "mig" || proc === "flux") && (

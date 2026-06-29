@@ -3468,6 +3468,54 @@
         "ampMin": 10,
         "ampMax": 150
       }
+    },
+    {
+      "id": "miller-millermatic-252",
+      "brand": "Miller",
+      "model": "Millermatic 252",
+      "input": "208/240V",
+      "processes": [
+        "mig",
+        "flux"
+      ],
+      "ampMax": 300,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 32
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 700
+        }
+      }
+    },
+    {
+      "id": "miller-millermatic-350p",
+      "brand": "Miller",
+      "model": "Millermatic 350P",
+      "input": "208-575V",
+      "processes": [
+        "mig",
+        "flux"
+      ],
+      "ampMax": 400,
+      "mig": {
+        "voltage": {
+          "type": "continuous",
+          "voltMin": 14,
+          "voltMax": 38
+        },
+        "wfs": {
+          "dialMin": 0,
+          "dialMax": 100,
+          "ipmMin": 50,
+          "ipmMax": 800
+        }
+      }
     }
   ]
 }

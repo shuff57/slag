@@ -187,6 +187,49 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
 .dial-read-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .dial-read-input { -moz-appearance: textfield; }
 
+/* thickness unit toggle (in" / ga) */
+.unit-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.unit-toggle button {
+  background: var(--panel2); color: var(--mute); border: none; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; font-weight: 600; padding: 4px 9px;
+}
+.unit-toggle button.on { background: var(--arc); color: var(--btn-ink); }
+.thk-ga::-webkit-outer-spin-button, .thk-ga::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.thk-ga { -moz-appearance: textfield; }
+
+/* Thin <-> Thick caption with a connecting double arrow */
+.thin-thick { display: flex; align-items: center; gap: 10px; }
+.tt-arrow { flex: 1; height: 0; border-top: 1px solid var(--mute); position: relative; }
+.tt-arrow::before, .tt-arrow::after {
+  content: ""; position: absolute; top: 50%; width: 0; height: 0;
+  border-top: 3px solid transparent; border-bottom: 3px solid transparent;
+  transform: translateY(-50%);
+}
+.tt-arrow::before { left: 0; border-right: 5px solid var(--mute); }
+.tt-arrow::after { right: 0; border-left: 5px solid var(--mute); }
+
+/* inline gauge preset slider — dots fill up to the selected gauge */
+.gauge-slider { position: relative; height: 40px; margin-top: 10px; }
+.gs-track, .gs-fill { position: absolute; top: 8px; height: 3px; border-radius: 2px; }
+.gs-track { left: 10px; right: 10px; background: var(--line); }
+.gs-fill { left: 10px; background: var(--arc); }
+.gstep {
+  position: absolute; top: 3px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 7px;
+  background: none; border: none; padding: 0; cursor: pointer;
+}
+.gs-dot {
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--panel); border: 2px solid var(--line);
+  transition: background 0.12s, border-color 0.12s;
+}
+.gstep:hover .gs-dot { border-color: var(--arc); }
+.gstep.filled .gs-dot { background: var(--arc); border-color: var(--arc); }
+.gstep.on .gs-dot { box-shadow: 0 0 0 4px rgba(232, 154, 110, 0.22); }
+.gs-num { font-family: var(--mono); font-size: 11px; font-weight: 600; color: var(--mute); }
+.gstep.filled .gs-num { color: var(--text); }
+.gstep.on .gs-num { color: var(--arc); }
+
 /* material filter checklist */
 .mat-filter {
   display: flex; flex-wrap: wrap; gap: 6px 14px;
