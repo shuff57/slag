@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { Flame, AlertTriangle, Plus, Gauge, SlidersHorizontal, Save, LogIn, LogOut, Trash2, Info } from "lucide-react";
 import machineData from "./data/machines.json";
 import { physics, WFS_PER_AMP } from "./lib/physics.js";
@@ -67,6 +67,13 @@ export default function App() {
     try { const { tweaks } = await api.listTweaks(); setSavedTweaks(tweaks); } catch { /* not signed in */ }
   }
   const clearTweak = () => { setOverlay(null); setEditing(false); };
+
+  // Focus the first gauge box when entering tweak mode (the input is always
+  // mounted, so autoFocus won't fire — do it imperatively).
+  const firstInputRef = useRef(null);
+  useEffect(() => {
+    if (editing && firstInputRef.current) { firstInputRef.current.focus(); firstInputRef.current.select(); }
+  }, [editing]);
 
   const machine = machines.find((m) => m.id === machineId) || machines[0];
   const proc = machine.processes.includes(process) ? process : machine.processes[0];
@@ -297,14 +304,12 @@ export default function App() {
                 <div key={i} className="dial-cell">
                   <Dial value={dialVal} min={o.min} max={o.max} unit={o.unit} />
                   <div className="dial-read">
-                    {editing ? (
-                      <input className="dial-read-input" type="number" inputMode="decimal" value={ov}
-                        autoFocus={i === firstNumIdx}
-                        onFocus={(e) => e.target.select()}
-                        style={{ width: `calc(${Math.max(2, String(ov).length)}ch + 18px)` }}
-                        onChange={(e) => setOverlay({ ...overlay, [o.label]: e.target.value === "" ? "" : +e.target.value })}
-                        aria-label={`${o.label} value`} />
-                    ) : ov}
+                    <input className="dial-read-input" type="number" inputMode="decimal" value={ov}
+                      ref={i === firstNumIdx ? firstInputRef : null}
+                      readOnly={!editing} tabIndex={editing ? 0 : -1}
+                      onFocus={(e) => e.target.select()}
+                      onChange={(e) => setOverlay({ ...overlay, [o.label]: e.target.value === "" ? "" : +e.target.value })}
+                      aria-label={`${o.label} value`} />
                     <span className="dial-unit"> {o.unit}</span>
                   </div>
                   {o.sub && <div className="dial-sub">{o.sub}</div>}

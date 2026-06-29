@@ -174,10 +174,12 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
    global input[type=number] rule.) */
 .dial-cell .dial-read-input {
   font-family: var(--mono); font-weight: 700; font-size: 28px; line-height: 1;
-  color: var(--text); text-align: center; padding: 2px 4px; min-width: 2.5ch; margin: 0;
+  color: var(--text); text-align: center; padding: 2px 5px; width: 4ch; margin: 0;
   background: transparent; border: 1px solid transparent; border-radius: 8px;
   box-sizing: content-box; cursor: text;
 }
+/* not tweaking → behaves as static text: no box, not focusable/clickable */
+.dial-cell .dial-read-input[readonly] { pointer-events: none; cursor: default; }
 .dial-cell .dial-read-input:focus, .dial-cell .dial-read-input:focus-visible {
   background: var(--panel2); border-color: var(--line); outline: none; box-shadow: none;
 }
@@ -241,7 +243,7 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
 .dial-cell { display: flex; flex-direction: column; align-items: center; }
 .dial-cell svg { filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); }
 .dial-read {
-  display: flex; align-items: baseline; justify-content: center;
+  display: flex; align-items: baseline; justify-content: center; gap: 0;
   min-height: 36px; margin-top: 8px;
   font-family: var(--mono); font-weight: 700; font-size: 28px; line-height: 1;
   color: var(--text);
