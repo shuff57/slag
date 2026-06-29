@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "notes": "Calibration values are STARTING POINTS and approximate. Refine ipmMin/ipmMax and voltage ranges against each machine's own door chart, manual spec page, or a measured feed test. wfs maps the physical wire-speed knob (dialMin..dialMax) onto real wire feed (ipmMin..ipmMax) by linear interpolation.",
+  "machines": [
+    {
+      "id": "hobart-210mvp",
+      "brand": "Hobart",
+      "model": "Handler 210MVP",
+      "input": "120/240V",
+      "processes": ["mig"],
+      "ampMax": 210,
+      "mig": {
+        "voltage": { "type": "taps", "taps": [1, 2, 3, 4, 5, 6, 7], "voltMin": 14.5, "voltMax": 26 },
+        "wfs": { "dialMin": 1, "dialMax": 100, "ipmMin": 40, "ipmMax": 700 }
+      }
+    },
+    {
+      "id": "lincoln-210mp",
+      "brand": "Lincoln",
+      "model": "POWER MIG 210 MP",
+      "input": "120/240V",
+      "processes": ["mig", "stick", "tig"],
+      "ampMax": 220,
+      "mig": {
+        "voltage": { "type": "continuous", "voltMin": 13, "voltMax": 26 },
+        "wfs": { "dialMin": 0, "dialMax": 100, "ipmMin": 50, "ipmMax": 500 }
+      },
+      "stick": { "ampMin": 20, "ampMax": 130 },
+      "tig": { "ampMin": 10, "ampMax": 220, "ac": false }
+    },
+    {
+      "id": "miller-215",
+      "brand": "Miller",
+      "model": "Multimatic 215",
+      "input": "120/240V",
+      "processes": ["mig", "stick", "tig"],
+      "ampMax": 230,
+      "mig": {
+        "voltage": { "type": "continuous", "voltMin": 13, "voltMax": 26 },
+        "wfs": { "dialMin": 0, "dialMax": 100, "ipmMin": 60, "ipmMax": 600 }
+      },
+      "stick": { "ampMin": 20, "ampMax": 150 },
+      "tig": { "ampMin": 10, "ampMax": 150, "ac": false }
+    },
+    {
+      "id": "lincoln-ac225",
+      "brand": "Lincoln",
+      "model": "AC-225 (buzzbox)",
+      "input": "240V",
+      "processes": ["stick"],
+      "ampMax": 225,
+      "stick": { "ampMin": 40, "ampMax": 225, "taps": true }
+    },
+    {
+      "id": "primeweld-tig225",
+      "brand": "PrimeWeld",
+      "model": "TIG225X",
+      "input": "120/240V",
+      "processes": ["tig", "stick"],
+      "ampMax": 225,
+      "tig": { "ampMin": 10, "ampMax": 225, "ac": true },
+      "stick": { "ampMin": 10, "ampMax": 200 }
+    }
+  ]
+}
