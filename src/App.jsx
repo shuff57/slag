@@ -162,8 +162,17 @@ export default function App() {
     <div className="wrap">
       <header className="dash-head">
         <div className="brand">
-          <Flame size={24} color={C.arc} />
-          <h1>SLAG</h1>
+          <svg width="0" height="0" aria-hidden="true" style={{ position: "absolute" }}>
+            <defs>
+              <linearGradient id="flameGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#E3744E" />
+                <stop offset="20%" stopColor="#E89A6E" />
+                <stop offset="44%" stopColor="#9DBEE6" />
+                <stop offset="100%" stopColor="#B4CEEC" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <h1 className="wordmark">SL<Flame className="flame-a" size={24} aria-label="A" />G</h1>
         </div>
         <p className="tagline">— settings lookup &amp; auto-guide</p>
         <div className="account">

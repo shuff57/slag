@@ -1,7 +1,7 @@
 // Simple offline-first app shell cache.
 // Bump CACHE on each deploy so clients pull fresh assets.
-const CACHE = "slag-v1";
-const SHELL = ["/", "/index.html", "/manifest.webmanifest", "/icon-192.png", "/icon-512.png"];
+const CACHE = "slag-v3";
+const SHELL = ["/", "/index.html", "/manifest.webmanifest", "/slag-icon.png", "/flame.svg"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)));

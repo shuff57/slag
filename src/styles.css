@@ -53,6 +53,8 @@ h1 {
   -webkit-background-clip: text; background-clip: text;
   color: transparent;
 }
+.wordmark { display: inline-flex; align-items: center; }
+.flame-a { fill: url(#flameGrad); stroke: none; margin: 0 -1px; }
 .tagline {
   font-family: var(--mono);
   letter-spacing: 0.12em; text-transform: uppercase;
