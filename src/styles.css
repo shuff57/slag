@@ -169,16 +169,41 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
   font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--btn-ink); background: var(--arc); padding: 2px 6px; border-radius: 5px;
 }
-/* Inline-editable dial readout — matches .dial-read exactly, just goes hot. */
-.dial-read-input {
+/* Inline-editable dial readout — looks identical to .dial-read; a box appears
+   only on focus, exactly like the thickness value. (.dial-cell prefix beats the
+   global input[type=number] rule.) */
+.dial-cell .dial-read-input {
   font-family: var(--mono); font-weight: 700; font-size: 28px; line-height: 1;
-  color: var(--arc); text-align: center; padding: 2px 4px; min-width: 2.5ch;
-  background: none; border: none; border-bottom: 2px dashed var(--arc);
-  box-sizing: content-box;
+  color: var(--text); text-align: center; padding: 2px 4px; min-width: 2.5ch; margin: 0;
+  background: transparent; border: 1px solid transparent; border-radius: 8px;
+  box-sizing: content-box; cursor: text;
+}
+.dial-cell .dial-read-input:focus, .dial-cell .dial-read-input:focus-visible {
+  background: var(--panel2); border-color: var(--line); outline: none; box-shadow: none;
 }
 .dial-read-input::-webkit-outer-spin-button,
 .dial-read-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .dial-read-input { -moz-appearance: textfield; }
+
+/* material filter checklist */
+.mat-filter {
+  display: flex; flex-wrap: wrap; gap: 6px 14px;
+  margin-top: 8px; padding: 10px 12px;
+  background: var(--panel2); border: 1px solid var(--line); border-radius: 10px;
+}
+.mat-check {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text); cursor: pointer;
+}
+.mat-check input { width: auto; margin: 0; accent-color: var(--arc); }
+
+/* material info note (calmer than a danger warning) */
+.note {
+  display: flex; gap: 8px; align-items: flex-start;
+  margin-top: 10px; padding: 10px 12px;
+  background: var(--panel2); border: 1px solid var(--line); border-radius: 10px;
+  font-size: 13px; color: var(--mute); line-height: 1.4;
+}
 .saved-list { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
 .saved-item { display: flex; align-items: center; gap: 6px; }
 .saved-name {
@@ -216,8 +241,10 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
 .dial-cell { display: flex; flex-direction: column; align-items: center; }
 .dial-cell svg { filter: drop-shadow(0 6px 14px rgba(0,0,0,0.35)); }
 .dial-read {
+  display: flex; align-items: baseline; justify-content: center;
+  min-height: 36px; margin-top: 8px;
   font-family: var(--mono); font-weight: 700; font-size: 28px; line-height: 1;
-  color: var(--text); margin-top: 8px;
+  color: var(--text);
 }
 .dial-unit { font-size: 13px; font-weight: 600; color: var(--mute); }
 .dial-sub { font-family: var(--mono); font-size: 11px; color: var(--mute); margin-top: 4px; }

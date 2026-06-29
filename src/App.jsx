@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { Flame, AlertTriangle, Plus, Gauge, SlidersHorizontal, Save, LogIn, LogOut, Trash2 } from "lucide-react";
+import { Flame, AlertTriangle, Plus, Gauge, SlidersHorizontal, Save, LogIn, LogOut, Trash2, Info } from "lucide-react";
 import machineData from "./data/machines.json";
 import { physics, WFS_PER_AMP } from "./lib/physics.js";
 import { translate } from "./lib/translate.js";
@@ -11,6 +11,16 @@ import AddMachine from "./components/AddMachine.jsx";
 import AuthModal from "./components/AuthModal.jsx";
 
 const PROC_LABEL = { mig: "MIG", flux: "Flux-core", stick: "Stick", tig: "TIG" };
+
+const MATERIALS = [
+  { v: "steel", t: "Mild steel" },
+  { v: "stainless", t: "Stainless" },
+  { v: "aluminum", t: "Aluminum" },
+  { v: "chromoly", t: "Chromoly" },
+  { v: "cast", t: "Cast iron" },
+  { v: "copper", t: "Copper/bronze" },
+  { v: "titanium", t: "Titanium" },
+];
 
 export default function App() {
   const seeded = machineData.machines;
@@ -32,6 +42,23 @@ export default function App() {
   const [showAuth, setShowAuth] = useState(false);
   const [overlay, setOverlay] = useState(null);    // { [gaugeLabel]: value } applied on top of computed
   const [editing, setEditing] = useState(false);
+
+  // ── material filter (hide the ones you never weld) ───────
+  const [hiddenMats, setHiddenMats] = useState(() => {
+    try { return new Set(JSON.parse(localStorage.getItem("slag.hiddenMaterials") || "[]")); } catch { return new Set(); }
+  });
+  const [showMatFilter, setShowMatFilter] = useState(false);
+  const visibleMats = MATERIALS.filter((m) => !hiddenMats.has(m.v));
+  function toggleMat(v) {
+    const next = new Set(hiddenMats);
+    next.has(v) ? next.delete(v) : next.add(v);
+    if (next.size >= MATERIALS.length) return; // keep at least one
+    setHiddenMats(next);
+    localStorage.setItem("slag.hiddenMaterials", JSON.stringify([...next]));
+  }
+  useEffect(() => {
+    if (!visibleMats.some((m) => m.v === material) && visibleMats[0]) setMaterial(visibleMats[0].v);
+  }, [hiddenMats]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     api.me().then((r) => { setUser(r.email); loadTweaks(); }).catch(() => {});
@@ -168,14 +195,24 @@ export default function App() {
           </div>
 
           <div className="field-gap">
-            <label style={lbl}>Material</label>
+            <div className="row" style={{ justifyContent: "space-between", alignItems: "baseline" }}>
+              <label style={lbl}>Material</label>
+              <button className="link-btn" style={{ fontSize: 12 }} onClick={() => setShowMatFilter((v) => !v)}>
+                <SlidersHorizontal size={12} /> Filter
+              </button>
+            </div>
+            {showMatFilter && (
+              <div className="mat-filter">
+                {MATERIALS.map((m) => (
+                  <label key={m.v} className="mat-check">
+                    <input type="checkbox" checked={!hiddenMats.has(m.v)} onChange={() => toggleMat(m.v)} />
+                    {m.t}
+                  </label>
+                ))}
+              </div>
+            )}
             <div style={{ marginTop: 6 }}>
-              <Seg value={material} onChange={onMaterial}
-                options={[
-                  { v: "steel", t: "Mild steel" },
-                  { v: "stainless", t: "Stainless" },
-                  { v: "aluminum", t: "Aluminum" },
-                ]} />
+              <Seg value={material} onChange={onMaterial} options={visibleMats} />
             </div>
           </div>
 
@@ -247,6 +284,7 @@ export default function App() {
 
           <div className="dials">
             {result.out.map((o, i) => {
+              const firstNumIdx = result.out.findIndex((x) => !x.text);
               if (o.text) return (
                 <div key={i} className="text-cell">
                   <div className="text-val" style={{ color: C.text }}>{o.value}</div>
@@ -261,6 +299,8 @@ export default function App() {
                   <div className="dial-read">
                     {editing ? (
                       <input className="dial-read-input" type="number" inputMode="decimal" value={ov}
+                        autoFocus={i === firstNumIdx}
+                        onFocus={(e) => e.target.select()}
                         style={{ width: `calc(${Math.max(2, String(ov).length)}ch + 18px)` }}
                         onChange={(e) => setOverlay({ ...overlay, [o.label]: e.target.value === "" ? "" : +e.target.value })}
                         aria-label={`${o.label} value`} />
@@ -286,6 +326,13 @@ export default function App() {
               <span>{w}</span>
             </div>
           ))}
+
+          {result.target.note && (
+            <div className="note">
+              <Info size={15} color={C.steel} style={{ marginTop: 1, flexShrink: 0 }} />
+              <span>{result.target.note}</span>
+            </div>
+          )}
         </section>
       </div>
 

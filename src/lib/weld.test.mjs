@@ -27,4 +27,10 @@ const m = physics({ process: "mig", material: "steel", thouThk: 125, wire: "0.03
 const ml = translate(wireFeed, "mig", m).out.map((o) => o.label);
 assert.ok(ml.includes("Gas") && !ml.includes("Polarity"), "mig output unchanged");
 
+// material notes
+assert.strictEqual(m.note, undefined, "steel has no note");
+assert.ok(physics({ process: "tig", material: "copper", thouThk: 125 }).note, "copper has a note");
+assert.ok(/TIG/.test(physics({ process: "mig", material: "titanium", thouThk: 125, wire: "0.035" }).note), "titanium+mig warns TIG-only");
+assert.ok(/Stick/.test(physics({ process: "tig", material: "cast", thouThk: 125 }).note), "cast+tig points to stick");
+
 console.log("weld.test.mjs: all assertions passed");
