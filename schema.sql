@@ -17,3 +17,12 @@ CREATE TABLE IF NOT EXISTS tweaks (
 );
 
 CREATE INDEX IF NOT EXISTS idx_tweaks_user ON tweaks(user_id, created_at);
+
+CREATE TABLE IF NOT EXISTS machines (
+  id          TEXT PRIMARY KEY,
+  user_id     TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  data_json   TEXT NOT NULL,              -- the full custom machine object
+  created_at  INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_machines_user ON machines(user_id, created_at);

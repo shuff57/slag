@@ -7,7 +7,7 @@ globalThis.crypto ??= webcrypto;
 
 // ── tiny D1 stub: just enough for the queries our handlers run ──────
 function makeDB() {
-  const users = [], tweaks = [];
+  const users = [], tweaks = [], machines = [];
   const prepare = (sql) => ({
     bind: (...a) => ({
       async run() {
@@ -17,10 +17,16 @@ function makeDB() {
           users.push({ id, email, salt: a[2], hash: a[3], created_at: a[4] });
         } else if (sql.startsWith("INSERT INTO tweaks")) {
           tweaks.push({ id: a[0], user_id: a[1], name: a[2], setup_json: a[3], gauges_json: a[4], created_at: a[5] });
+        } else if (sql.startsWith("INSERT INTO machines")) {
+          machines.push({ id: a[0], user_id: a[1], data_json: a[2], created_at: a[3] });
         } else if (sql.startsWith("DELETE FROM tweaks")) {
           const [id, uid] = a;
           for (let i = tweaks.length - 1; i >= 0; i--)
             if (tweaks[i].id === id && tweaks[i].user_id === uid) tweaks.splice(i, 1);
+        } else if (sql.startsWith("DELETE FROM machines")) {
+          const [id, uid] = a;
+          for (let i = machines.length - 1; i >= 0; i--)
+            if (machines[i].id === id && machines[i].user_id === uid) machines.splice(i, 1);
         }
         return { success: true };
       },
@@ -32,6 +38,8 @@ function makeDB() {
       async all() {
         if (sql.includes("FROM tweaks"))
           return { results: tweaks.filter((t) => t.user_id === a[0]).sort((x, y) => y.created_at - x.created_at) };
+        if (sql.includes("FROM machines"))
+          return { results: machines.filter((m) => m.user_id === a[0]).sort((x, y) => y.created_at - x.created_at) };
         return { results: [] };
       },
     }),
@@ -92,5 +100,27 @@ assert.strictEqual(list[0].gauges.Amperage, 175, "gauges round-trip");
 await tweakId({ request: del(`/api/tweaks/${saved.id}`, cookie2), env, params: { id: saved.id } });
 list = (await (await tweaks.onRequestGet({ request: get("/api/tweaks", cookie2), env })).json()).tweaks;
 assert.strictEqual(list.length, 0, "tweak deleted");
+
+// ── custom machines ────────────────────────────────────────────────
+const machines = await import("../api/machines/index.js");
+const machineId = (await import("../api/machines/[id].js")).onRequestDelete;
+const goodMachine = { brand: "Test", model: "T1", input: "240V", processes: ["mig", "flux"], ampMax: 200,
+  mig: { voltage: { type: "continuous", voltMin: 13, voltMax: 26 }, wfs: { dialMin: 0, dialMax: 100, ipmMin: 50, ipmMax: 500 } } };
+
+assert.strictEqual((await machines.onRequestGet({ request: get("/api/machines"), env })).status, 401, "machines need auth");
+// invalid machine (mig listed but no mig block) rejected
+res = await machines.onRequestPost({ request: post("/api/machines", { brand: "X", model: "Y", processes: ["mig"], ampMax: 100 }, cookie2), env });
+assert.strictEqual(res.status, 400, "invalid machine 400");
+// good machine saved + listed + deleted
+res = await machines.onRequestPost({ request: post("/api/machines", goodMachine, cookie2), env });
+assert.strictEqual(res.status, 201, "machine saved 201");
+const savedM = await res.json();
+assert.ok(savedM.id && savedM.custom === true, "saved machine has id + custom flag");
+let mlist = (await (await machines.onRequestGet({ request: get("/api/machines", cookie2), env })).json()).machines;
+assert.strictEqual(mlist.length, 1, "one machine listed");
+assert.deepStrictEqual(mlist[0].processes, ["mig", "flux"], "processes round-trip");
+await machineId({ request: del(`/api/machines/${savedM.id}`, cookie2), env, params: { id: savedM.id } });
+mlist = (await (await machines.onRequestGet({ request: get("/api/machines", cookie2), env })).json()).machines;
+assert.strictEqual(mlist.length, 0, "machine deleted");
 
 console.log("integration.test.mjs: all assertions passed");

@@ -19,4 +19,7 @@ export const api = {
   listTweaks: () => req("/api/tweaks"),
   saveTweak: (t) => req("/api/tweaks", { method: "POST", body: JSON.stringify(t) }),
   deleteTweak: (id) => req(`/api/tweaks/${encodeURIComponent(id)}`, { method: "DELETE" }),
+  listMachines: () => req("/api/machines"),
+  saveMachine: (m) => req("/api/machines", { method: "POST", body: JSON.stringify(m) }),
+  deleteMachine: (id) => req(`/api/machines/${encodeURIComponent(id)}`, { method: "DELETE" }),
 };

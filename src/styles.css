@@ -189,6 +189,12 @@ input[type="range"] { width: 100%; accent-color: var(--arc); margin: 10px 0; }
 .dial-read-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .dial-read-input { -moz-appearance: textfield; }
 
+/* add-machine section divider */
+.add-section {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--arc); margin: 6px 0 8px; padding-top: 10px; border-top: 1px solid var(--line-soft);
+}
+
 /* thickness unit toggle (in" / ga) */
 .unit-toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .unit-toggle button {

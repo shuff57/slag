@@ -71,10 +71,26 @@ export default function App() {
   }, [hiddenMats]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    api.me().then((r) => { setUser(r.email); loadTweaks(); }).catch(() => {});
+    api.me().then((r) => { setUser(r.email); loadTweaks(); loadMachines(); }).catch(() => {});
   }, []);
   async function loadTweaks() {
     try { const { tweaks } = await api.listTweaks(); setSavedTweaks(tweaks); } catch { /* not signed in */ }
+  }
+  async function loadMachines() {
+    try { const { machines } = await api.listMachines(); setCustom(machines); } catch { /* not signed in */ }
+  }
+
+  async function addMachine(m) {
+    if (user) {
+      try { const saved = await api.saveMachine(m); setCustom([saved, ...custom]); setMachineId(saved.id); setShowAdd(false); return; }
+      catch (e) { window.alert(`Couldn't save to your account: ${e.message}`); }
+    }
+    setCustom([m, ...custom]); setMachineId(m.id); setShowAdd(false); // session-only fallback / signed-out
+  }
+  async function removeMachine(m) {
+    if (user && !m.id.startsWith("custom-")) { try { await api.deleteMachine(m.id); } catch { /* ignore */ } }
+    setCustom(custom.filter((x) => x.id !== m.id));
+    if (machineId === m.id) setMachineId(seeded[1].id);
   }
   const clearTweak = () => { setOverlay(null); setEditing(false); };
 
@@ -115,7 +131,7 @@ export default function App() {
   }
   async function signOut() {
     try { await api.logout(); } catch { /* ignore */ }
-    setUser(null); setSavedTweaks([]); clearTweak();
+    setUser(null); setSavedTweaks([]); setCustom([]); clearTweak();
   }
   function applyTweak(t) {
     const s = t.setup || {};
@@ -202,9 +218,14 @@ export default function App() {
               </select>
               <select value={machineId} onChange={(e) => onModel(e.target.value)} style={{ flex: 2, marginTop: 0 }} aria-label="Model">
                 {modelsForBrand.map((m) => (
-                  <option key={m.id} value={m.id}>{m.model} · {m.input}</option>
+                  <option key={m.id} value={m.id}>{m.model} · {m.input}{m.custom ? " ★" : ""}</option>
                 ))}
               </select>
+              {machine.custom && (
+                <button className="icon-x" onClick={() => removeMachine(machine)} aria-label="Remove custom machine" title="Remove this custom machine">
+                  <Trash2 size={16} />
+                </button>
+              )}
             </div>
             <button className="add-machine-btn" onClick={() => setShowAdd(true)}>
               <Plus size={16} /> Add machine
@@ -422,15 +443,16 @@ export default function App() {
 
       {showAdd && (
         <AddMachine
+          signedIn={!!user}
           onClose={() => setShowAdd(false)}
-          onAdd={(m) => { setCustom([...custom, m]); setMachineId(m.id); setShowAdd(false); }}
+          onAdd={addMachine}
         />
       )}
 
       {showAuth && (
         <AuthModal
           onClose={() => setShowAuth(false)}
-          onAuth={(email) => { setUser(email); setShowAuth(false); loadTweaks(); }}
+          onAuth={(email) => { setUser(email); setShowAuth(false); loadTweaks(); loadMachines(); }}
         />
       )}
     </div>
